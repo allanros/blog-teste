@@ -48,6 +48,7 @@
 
 .blog-breadcrumbs a {
     text-decoration: none;
+    color: #00244D;
 }
 
 .blog-breadcrumbs a:visited {
@@ -223,6 +224,10 @@
     line-height: 18px;
 }
 
+.related-post-content a:visited {
+    color: #001834;
+}
+
 /* Single page */
 
 .full-content {
@@ -343,6 +348,7 @@
 
 .sidebar a {
     text-decoration: none;
+    color: #333;
 }
 
 .sidebar a:visited {
