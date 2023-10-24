@@ -66,7 +66,7 @@ const SinglePost = () => {
             <div className="full-content">
                 <div className="post-content">
                     <div className="post-image">
-                        <img src={featuredImage.node.sourceUrl}/>
+                        <img src={featuredImage?.node.sourceUrl}/>
                     </div>
                     <div style={{color: "#333", fontFamily: 'Open Sans', fontSize: '16px', fontWeight: '300'}}>
                         <div className="author-name">

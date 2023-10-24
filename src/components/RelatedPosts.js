@@ -30,6 +30,8 @@ const RelatedPosts = () => {
   const { loading, error, data } = useQuery(POSTS_QUERY);
   const posts = data?.posts.nodes;
 
+  
+
   if (loading) return <p>Loading</p>;
   if (error) return <p>Erro</p>;
 
@@ -55,14 +57,15 @@ const RelatedPosts = () => {
 
       const redirectUrl = `/${slug}`
 
+      
       return (
         <>
           <div className="related-posts-card">
             <div className="related-post-image">
               <Link to={redirectUrl} >
               <img
-                src={featuredImage.node.sourceUrl}
-                alt={featuredImage.node.altText}
+                src={featuredImage?.node.sourceUrl}
+                alt={featuredImage?.node.altText}
               />
               </Link>
             </div>

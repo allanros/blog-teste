@@ -11,7 +11,7 @@ import Breadcrumbs from './components/Breadcrumbs.js';
 
 
 const client = new ApolloClient({
-  uri: "http://localhost/wordpress/?graphql",
+  uri: "http://localhost:8080/?graphql",
   cache: new InMemoryCache(),
 })
 
