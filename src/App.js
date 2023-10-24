@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { ApolloProvider } from '@apollo/react-hooks'
+import { ApolloClient, InMemoryCache } from '@apollo/client';
+import PostsDestaque from './components/PostsDestaque.js';
+import './global.css'
+import { Header } from './components/Header.js';
+import RelatedPosts from './components/RelatedPosts.js'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import SinglePost from './components/SinglePost.js';
+import Footer from './components/Footer.js';
+import Breadcrumbs from './components/Breadcrumbs.js';
+
+
+const client = new ApolloClient({
+  uri: "http://localhost/wordpress/?graphql",
+  cache: new InMemoryCache(),
+})
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={client}>
+    <BrowserRouter>
+      <Header />
+      <Breadcrumbs />
+      
+      <div className='blog-content'>
+        <Routes>
+          <Route path='/' element={<PostsDestaque />} />
+        </Routes>
+        <section className='related-posts'>
+          <Routes>
+            <Route path='/' element={<RelatedPosts />} />
+          </Routes>
+        </section>
+        <Routes>
+          <Route path="/:slugPost" element={<SinglePost />} />
+        </Routes>
+      </div>
+      <Footer />
+
+    </BrowserRouter>
+    </ApolloProvider>
   );
 }
 
